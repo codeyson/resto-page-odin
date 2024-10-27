@@ -7,7 +7,7 @@ This is a simple single-page application using HTML files as modules with Webpac
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Webpack Configuration](#webpack-configuration)
-- 
+
 ## Installation
 
 To set up and run this project locally, follow these steps:
@@ -34,6 +34,7 @@ npm start
 This command will run Webpack’s development server, allowing you to test the navigation and content loading.
 
 ## Project Structure
+```
 your-repo/
 ├── src/
 │   ├── home.html           # Home page content
@@ -45,7 +46,7 @@ your-repo/
 │   └── (generated files)   # Webpack output files
 ├── webpack.config.js       # Webpack configuration
 └── package.json            # Project dependencies and scripts
-
+```
 ## Webpack Configuration
 This project uses Webpack to bundle the HTML modules and JavaScript. Key configurations:
 
