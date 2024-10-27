@@ -79,3 +79,4 @@ module.exports = {
 };
 
 ```
+3. Run the program `http://localhost:8080/`
