@@ -1,46 +1,48 @@
-import homeHTML from './home.html';
-import menuHTML from './menu.html';
-import contactHTML from './about.html';
+import loadHome from './home.js';
+import loadMenu from './menu.js';
+import loadAbout from './about.js';
+import './styles.css';
 
 const content = document.getElementById('content');
 content.innerHTML = `
-    <button id="homeButton">Home</button>
-    <button id="menuButton">Menu</button>
-    <button id="contactButton">Contact</button>
+    <div id="navButtons">
+        <button id="homeButton">Home</button>
+        <button id="menuButton">Menu</button>
+        <button id="aboutButton">About</button>
+    </div>
 `;
 
 function clearContent() {
-    const content = document.getElementById('content');
+    // Clear all content except the navigation buttons
     content.innerHTML = `
-        <button id="homeButton">Home</button>
-        <button id="menuButton">Menu</button>
-        <button id="contactButton">Contact</button>
+        <div id="navButtons">
+            <button id="homeButton">Home</button>
+            <button id="menuButton">Menu</button>
+            <button id="aboutButton">About</button>
+        </div>
     `;
 }
 
 function addNavEvents() {
-    const homeButton = document.getElementById('homeButton');
-    const menuButton = document.getElementById('menuButton');
-    const contactButton = document.getElementById('contactButton');
-
-    homeButton.addEventListener('click', () => {
+    document.getElementById('homeButton').addEventListener('click', () => {
         clearContent();
-        content.innerHTML += homeHTML; // Inserts HTML content directly
-        addNavEvents(); // Re-bind event listeners
+        loadHome();
+        addNavEvents(); // Re-bind events after clearing content
     });
 
-    menuButton.addEventListener('click', () => {
+    document.getElementById('menuButton').addEventListener('click', () => {
         clearContent();
-        content.innerHTML += menuHTML; // Inserts HTML content directly
-        addNavEvents(); // Re-bind event listeners
+        loadMenu();
+        addNavEvents(); // Re-bind events after clearing content
     });
 
-    contactButton.addEventListener('click', () => {
+    document.getElementById('aboutButton').addEventListener('click', () => {
         clearContent();
-        content.innerHTML += contactHTML; // Inserts HTML content directly
-        addNavEvents(); // Re-bind event listeners
+        loadAbout();
+        addNavEvents(); // Re-bind events after clearing content
     });
 }
 
-// Call this function when your page loads
+// Initialize the page with the Home tab
 addNavEvents();
+loadHome();
