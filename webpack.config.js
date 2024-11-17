@@ -1,38 +1,25 @@
-// webpack.config.js
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-module.exports = {
-  mode: "production",
-  entry: "./src/index.js",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
+{
+  "name": "cinematic-site",
+  "version": "1.0.0",
+  "description": "A dynamic cinematic website with modular design.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
   },
-  devtool: "eval-source-map",
-  devServer: {
-    watchFiles: ["./src/template.html"],
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.x",
+    "webpack-cli": "^5.x",
+    "webpack-dev-server": "^4.x",
+    "babel-loader": "^9.x",
+    "@babel/core": "^7.x",
+    "@babel/preset-env": "^7.x",
+    "css-loader": "^6.x",
+    "style-loader": "^3.x",
+    "html-webpack-plugin": "^5.x"
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/template.html",
-    }),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.html$/,
-        use: 'html-loader'
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-      },
-    ],
-  },
-};
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC"
+}
