@@ -1,25 +1,37 @@
-{
-  "name": "cinematic-site",
-  "version": "1.0.0",
-  "description": "A dynamic cinematic website with modular design.",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js', // Main entry file
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    clean: true, // Cleans the output directory before each build
   },
-  "dependencies": {},
-  "devDependencies": {
-    "webpack": "^5.x",
-    "webpack-cli": "^5.x",
-    "webpack-dev-server": "^4.x",
-    "babel-loader": "^9.x",
-    "@babel/core": "^7.x",
-    "@babel/preset-env": "^7.x",
-    "css-loader": "^6.x",
-    "style-loader": "^3.x",
-    "html-webpack-plugin": "^5.x"
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // Transpile JS files
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.css$/, // Load CSS files
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
-  "keywords": [],
-  "author": "Your Name",
-  "license": "ISC"
-}
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html', // Your main HTML file
+    }),
+  ],
+  devServer: {
+    static: './dist',
+    port: 3000, // Dev server runs on localhost:3000
+    hot: true, // Enable hot module replacement
+  },
+  mode: 'development', // Set default mode
+};
