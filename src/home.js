@@ -1,10 +1,12 @@
-// home.js
 export default function loadHome() {
-    const homeDiv = document.createElement('div');
-    homeDiv.classList.add('tab-content'); // Add class for styling if needed
-    homeDiv.innerHTML = `
-        <h1>Welcome to Our Home Page</h1>
-        <p>Enjoy browsing through our services and offerings.</p>
+    const content = document.getElementById('content');
+    const homeContent = `
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Cinematic Video" allowfullscreen></iframe>
+        </div>
+        <div class="description">
+            A thrilling experience awaits. Dive into the world of cinema with our latest releases and timeless classics.
+        </div>
     `;
-    document.getElementById('content').appendChild(homeDiv);
+    content.innerHTML += homeContent;
 }
