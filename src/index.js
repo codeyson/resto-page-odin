@@ -1,48 +1,35 @@
 import loadHome from './home.js';
 import loadMenu from './menu.js';
 import loadAbout from './about.js';
-import './styles.css';
 
 const content = document.getElementById('content');
-content.innerHTML = `
-    <div id="navButtons">
-        <button id="homeButton">Home</button>
-        <button id="menuButton">Menu</button>
-        <button id="aboutButton">About</button>
-    </div>
-`;
 
+// Set up navigation buttons
 function clearContent() {
-    // Clear all content except the navigation buttons
-    content.innerHTML = `
-        <div id="navButtons">
-            <button id="homeButton">Home</button>
-            <button id="menuButton">Menu</button>
-            <button id="aboutButton">About</button>
-        </div>
-    `;
+    const navButtons = document.getElementById('navButtons').outerHTML; // Save nav buttons
+    content.innerHTML = navButtons; // Replace content with nav buttons
 }
 
 function addNavEvents() {
     document.getElementById('homeButton').addEventListener('click', () => {
         clearContent();
         loadHome();
-        addNavEvents(); // Re-bind events after clearing content
+        addNavEvents();
     });
 
     document.getElementById('menuButton').addEventListener('click', () => {
         clearContent();
         loadMenu();
-        addNavEvents(); // Re-bind events after clearing content
+        addNavEvents();
     });
 
     document.getElementById('aboutButton').addEventListener('click', () => {
         clearContent();
         loadAbout();
-        addNavEvents(); // Re-bind events after clearing content
+        addNavEvents();
     });
 }
 
-// Initialize the page with the Home tab
+// Initialize with Home content
 addNavEvents();
 loadHome();
