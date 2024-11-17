@@ -1,13 +1,25 @@
 import loadHome from './home.js';
 import loadMenu from './menu.js';
 import loadAbout from './about.js';
+import './styles.css';
 
 const content = document.getElementById('content');
+content.innerHTML = `
+    <div id="navButtons">
+        <button id="homeButton">Home</button>
+        <button id="menuButton">Menu</button>
+        <button id="aboutButton">About</button>
+    </div>
+`;
 
-// Set up navigation buttons
 function clearContent() {
-    const navButtons = document.getElementById('navButtons').outerHTML; // Save nav buttons
-    content.innerHTML = navButtons; // Replace content with nav buttons
+    content.innerHTML = `
+        <div id="navButtons">
+            <button id="homeButton">Home</button>
+            <button id="menuButton">Menu</button>
+            <button id="aboutButton">About</button>
+        </div>
+    `;
 }
 
 function addNavEvents() {
