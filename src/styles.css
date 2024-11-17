@@ -1,63 +1,35 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #3d3d5c, #ff0077, #00d4ff);
-    background-size: 400% 400%;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    overflow-x: hidden;
-    animation: gradientAnimation 15s ease infinite;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #3d3d5c, #ff0077, #00d4ff);
+  background-size: 400% 400%;
+  color: white;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Gradient Animation */
 @keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Navigation Buttons */
 #navButtons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
 }
 
-.nav-btn {
-    padding: 10px 20px;
-    background: #ff0077;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: box-shadow 0.3s, background 0.3s;
+button {
+  padding: 10px 20px;
+  background: #ff0077;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.nav-btn:hover {
-    background: #ff66a1;
-    box-shadow: 0 0 10px rgba(255, 0, 119, 0.8);
-}
-
-/* Dynamic Content Styling */
-#content {
-    text-align: center;
-    margin-top: 20px;
-    width: 80%;
-    max-width: 900px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+button:hover {
+  background: #ff66a1;
 }
